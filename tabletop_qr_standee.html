@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ruchi's Family Restaurant — Tabletop Digital Menu QR Card</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap');
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #06110B;
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    
+    .standee-card {
+      width: 380px;
+      background: linear-gradient(135deg, #184E38 0%, #123E2C 50%, #0A241A 100%);
+      border: 3px solid #D4B475;
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      color: #F8F6EF;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8), inset 0 1px 2px rgba(255,255,255,0.2);
+      position: relative;
+    }
+
+    .inner-frame {
+      border: 1.5px solid rgba(212, 180, 117, 0.6);
+      border-radius: 10px;
+      padding: 24px 16px;
+      background: rgba(14, 46, 33, 0.65);
+    }
+
+    .veg-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #0E3324;
+      border: 1px solid #D4B475;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #E8CFA0;
+      margin-bottom: 14px;
+    }
+
+    .veg-icon {
+      width: 12px;
+      height: 12px;
+      border: 1px solid #166534;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+    }
+    .veg-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #166534;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 38px;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      color: #F8F6EF;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 14px;
+      letter-spacing: 0.32em;
+      color: #D4B475;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .cuisine {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #E2DACB;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .qr-container {
+      background: #FAF7F0;
+      padding: 16px;
+      border-radius: 12px;
+      border: 2px solid #D4B475;
+      display: inline-block;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      margin-bottom: 18px;
+    }
+
+    .qr-container img {
+      width: 200px;
+      height: 200px;
+      display: block;
+    }
+
+    .scan-cta {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #F8F6EF;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .scan-desc {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #D4B475;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .url-link {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: #C5BBAA;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="standee-card">
+    <div class="inner-frame">
+      <div class="veg-badge">
+        <span class="veg-icon"><span class="veg-dot"></span></span>
+        <span>Pure Vegetarian</span>
+      </div>
+
+      <h1>RUCHI’S</h1>
+      <div class="subtitle">Family Restaurant</div>
+      <div class="cuisine">North Indian &amp; Marwadi Special</div>
+
+      <div class="qr-container">
+        <img src="ruchi_menu_qr.png" alt="Ruchi Digital Menu QR Code">
+      </div>
+
+      <div class="scan-cta">Scan for Digital Menu Book</div>
+      <div class="scan-desc">Open on any smartphone camera</div>
+      <div class="url-link">https://satishhhh989.github.io/ruchi-digital-menu/</div>
+    </div>
+  </div>
+</body>
+</html>
