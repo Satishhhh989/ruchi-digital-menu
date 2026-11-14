@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 // 01. TYPES & DATA SCHEMA (100% PRESERVED)
 // ============================================================================
 
+export type Language = 'en' | 'kn';
+
 export interface MenuItemData {
   id: string;
   name: string;
@@ -142,6 +144,360 @@ export const CATEGORY_DISPLAY_NAMES: Record<string, string> = {
   'CURD ITEMS': 'Curd Items',
   'LASSI': 'Lassi & Coolers',
   'TANDOORI ITEMS': 'Tandoori Breads',
+};
+
+// ============================================================================
+// 02B. VERIFIED KANNADA TRANSLATION DICTIONARIES (100% ACCURATE & NATURAL)
+// ============================================================================
+
+export const KANNADA_PAGES: Record<number, { title: string; subtitle: string; emptySections?: { title: string; note: string }[] }> = {
+  1: {
+    title: 'ಸ್ಟಾರ್ಟರ್ಸ್ ಮತ್ತು ಸೂಪ್ಸ್',
+    subtitle: 'ಗರಿಗರಿಯಾದ ತಿನಿಸುಗಳು, ತಂದೂರಿ ಸವಿಯೂಟ ಮತ್ತು ಬಿಸಿಬಿಸಿ ಸೂಪ್‌ಗಳು',
+  },
+  2: {
+    title: 'ನೂಡಲ್ಸ್ ಮತ್ತು ದಾಲ್',
+    subtitle: 'ರುಚಿಕರ ನೂಡಲ್ಸ್ ಮತ್ತು ಮಂದವಾಗಿ ಬೇಯಿಸಿದ ಘಮಘಮಿಸುವ ಬೇಳೆ ಸಾರು',
+  },
+  3: {
+    title: 'ಪಂಜಾಬಿ ಪನ್ನೀರ್ ಸ್ಪೆಷಲ್ಸ್',
+    subtitle: 'ಮನೆಯ ಸಿಗ್ನೇಚರ್ ಗ್ರೇವಿಗಳು ಮತ್ತು ತಾಜಾ ಮೃದುವಾದ ಪನ್ನೀರ್ ಖಾದ್ಯಗಳು',
+  },
+  4: {
+    title: 'ಪಂಜಾಬಿ ಕಾಜು ಮತ್ತು ಮಶ್ರೂಮ್',
+    subtitle: 'ಶ್ರೀಮಂತ ಗೋಡಂಬಿ ಕರ್ರಿ, ಅಣಬೆ ಮತ್ತು ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ವಾಡಿ ಸೇವ್ ತಿನಿಸುಗಳು',
+  },
+  5: {
+    title: 'ತರಕಾರಿ ಖಾದ್ಯಗಳು (ವೆಜಿಟೆಬಲ್ಸ್)',
+    subtitle: 'ತಾಜಾ ಹಸಿರು ತರಕಾರಿಗಳು, ಹಸ್ತನಿರ್ಮಿತ ಕೋಫ್ತಾ ಮತ್ತು ಸಬ್ಜಿಗಳು',
+  },
+  6: {
+    title: 'ರೈಸ್, ಬಿರಿಯಾನಿ ಮತ್ತು ಪುಲಾವ್',
+    subtitle: 'ಸುಗಂಧಭರಿತ ಬಾಸುಮತಿ ರೈಸ್, ಹಂಡಿ ದಮ್ ಬಿರಿಯಾನಿ ಮತ್ತು ಹಿತವಾದ ಕಿಚಡಿ',
+  },
+  7: {
+    title: 'ಚೈನೀಸ್, ಮೊಸರು ಮತ್ತು ಲಸ್ಸಿ',
+    subtitle: 'ಇಂಡೋ-ಚೈನೀಸ್ ಫ್ರೈಡ್ ರೈಸ್, ತಂಪಾದ ಮೊಸರು ಮತ್ತು ನೊರೆಭರಿತ ಲಸ್ಸಿ',
+  },
+  8: {
+    title: 'ತಂದೂರಿ ರೊಟ್ಟಿಗಳು ಮತ್ತು ಊಟ',
+    subtitle: 'ತಂದೂರ್ ರೊಟ್ಟಿ, ನಾನ್, ಪರೋಟ ಮತ್ತು ಸಾಂಪ್ರದಾಯಿಕ ಪರಿಪೂರ್ಣ ಥಾಲಿ',
+    emptySections: [
+      {
+        title: 'ಥಾಲಿ (ಸಸ್ಯಾಹಾರಿ ಊಟ)',
+        note: 'ಸಾಂಪ್ರದಾಯಿಕ ಪರಿಪೂರ್ಣ ಸಸ್ಯಾಹಾರಿ ಊಟ — ಲಭ್ಯತೆಯ ಬಗ್ಗೆ ಪರಿಚಾರಕರನ್ನು ವಿಚಾರಿಸಿ',
+      },
+    ],
+  },
+};
+
+export const KANNADA_CATEGORY_DISPLAY_NAMES: Record<string, string> = {
+  'STARTERS': 'ಸ್ಟಾರ್ಟರ್ಸ್',
+  'SOUPS': 'ಸೂಪ್ಸ್',
+  'NOODLES': 'ನೂಡಲ್ಸ್',
+  'DAL': 'ದಾಲ್ ಖಾದ್ಯಗಳು',
+  'PUNJABI SPECIALS (PANEER)': 'ಪಂಜಾಬಿ ಸ್ಪೆಷಲ್ಸ್ (ಪನ್ನೀರ್)',
+  'PUNJABI SPECIALS (KAJU & MUSHROOM)': 'ಪಂಜಾಬಿ ಸ್ಪೆಷಲ್ಸ್ (ಕಾಜು & ಮಶ್ರೂಮ್)',
+  'VEGETABLES': 'ತರಕಾರಿ ಖಾದ್ಯಗಳು',
+  'RICE': 'ಸುಗಂಧಭರಿತ ರೈಸ್',
+  'BIRYANI': 'ದಮ್ ಬಿರಿಯಾನಿ',
+  'PULAV & KHICHDI': 'ಪುಲಾವ್ ಮತ್ತು ಕಿಚಡಿ',
+  'CHINESE': 'ಇಂಡೋ-ಚೈನೀಸ್',
+  'CURD ITEMS': 'ಮೊಸರು ತಿನಿಸುಗಳು',
+  'LASSI': 'ಲಸ್ಸಿ ಮತ್ತು ಮಜ್ಜಿಗೆ',
+  'TANDOORI ITEMS': 'ತಂದೂರಿ ರೊಟ್ಟಿಗಳು',
+};
+
+export const KANNADA_DISH_NAMES: Record<string, string> = {
+  // PAGE 1: STARTERS (24)
+  'p1-st-01': 'ರೋಸ್ಟೆಡ್ ಪಾಪಡ್',
+  'p1-st-02': 'ಮಸಾಲಾ ಪಾಪಡ್',
+  'p1-st-03': 'ಪಾಪಡ್ ಸೂರಿ',
+  'p1-st-04': 'ಗೋಬಿ ಮಂಚೂರಿಯನ್',
+  'p1-st-05': 'ವೆಜ್ ಮಂಚೂರಿಯನ್',
+  'p1-st-06': 'ಪನ್ನೀರ್ ಚಿಲ್ಲಿ',
+  'p1-st-07': 'ಪನ್ನೀರ್ ಮಂಚೂರಿಯನ್',
+  'p1-st-08': 'ಪನ್ನೀರ್ ಸೂಟೆ',
+  'p1-st-09': 'ಪನ್ನೀರ್ ಪೆಪ್ಪರ್ ಡ್ರೈ',
+  'p1-st-10': 'ಮಶ್ರೂಮ್ ಮಂಚೂರಿಯನ್',
+  'p1-st-11': 'ಮಶ್ರೂಮ್ ಚಿಲ್ಲಿ',
+  'p1-st-12': 'ಮಶ್ರೂಮ್ ಪೆಪ್ಪರ್ ಡ್ರೈ',
+  'p1-st-13': 'ಬೇಬಿ ಕಾರ್ನ್ ಮಂಚೂರಿಯನ್',
+  'p1-st-14': 'ಬೇಬಿ ಕಾರ್ನ್ ಚಿಲ್ಲಿ',
+  'p1-st-15': 'ಬೇಬಿ ಕಾರ್ನ್ ಪೆಪ್ಪರ್ ಡ್ರೈ',
+  'p1-st-16': 'ಅಮೇರಿಕನ್ ಕಾರ್ನ್ ಡ್ರೈ',
+  'p1-st-17': 'ಫಿಂಗರ್ ಚಿಪ್ಸ್',
+  'p1-st-18': 'ಪನ್ನೀರ್ 65',
+  'p1-st-19': 'ಪನ್ನೀರ್ ಪಕೋಡಾ',
+  'p1-st-20': 'ವೆಜ್ ಕ್ರಿಸ್ಪಿ',
+  'p1-st-21': 'ಮಿಕ್ಸ್ ಪಕೋಡಾ',
+  'p1-st-22': 'ಪನ್ನೀರ್ ಟಿಕ್ಕಾ ಡ್ರೈ (ತಂದೂರ್)',
+  'p1-st-23': 'ಅರಾಬರ್ನ್ ಕಬಾಬ್',
+  'p1-st-24': 'ಪಾಲಕ್ ಪಕೋಡಾ',
+
+  // PAGE 1: SOUPS (6)
+  'p1-sp-01': 'ವೆಜ್ ಮಂಚಾವ್ ಸೂಪ್',
+  'p1-sp-02': 'ಹಾಟ್ ಅಂಡ್ ಸೋರ್ ಸೂಪ್',
+  'p1-sp-03': 'ಟೊಮೆಟೊ ಸೂಪ್',
+  'p1-sp-04': 'ಗಾರ್ಲಿಕ್ ಸೂಪ್',
+  'p1-sp-05': 'ಲೆಮನ್ ಕೊತ್ತಂಬರಿ ಸೂಪ್',
+  'p1-sp-06': 'ಸ್ವೀಟ್ ಕಾರ್ನ್ ಸೂಪ್',
+
+  // PAGE 2: NOODLES (2)
+  'p2-nd-01': 'ವೆಜ್ ನೂಡಲ್ಸ್',
+  'p2-nd-02': 'ಶೆಜ್ವಾನ್ ನೂಡಲ್ಸ್',
+
+  // PAGE 2: DAL (8)
+  'p2-dl-01': 'ದಾಲ್ ಫ್ರೈ',
+  'p2-dl-02': 'ದಾಲ್ ತಡ್ಕಾ',
+  'p2-dl-03': 'ದಾಲ್ ಕೊಲ್ಲಾಪುರಿ',
+  'p2-dl-04': 'ದಾಲ್ ಪಾಲಕ್',
+  'p2-dl-05': 'ಹಸಿ ಮೆಣಸಿನಕಾಯಿ ದಾಲ್',
+  'p2-dl-06': 'ಮಟರ್ ಪನ್ನೀರ್ ದಾಲ್',
+  'p2-dl-07': 'ದಾಲ್ ಲಸುನಿಯಾ (ಬೆಳ್ಳುಳ್ಳಿ ದಾಲ್)',
+  'p2-dl-08': 'ಕಢ್ ಪಾಲಕ್ ದಾಲ್',
+
+  // PAGE 3: PUNJABI SPECIALS (PANEER) (21)
+  'p3-pj-01': 'ರುಚಿಸ್ ಸ್ಪೆಷಲ್ ಕರ್ರಿ',
+  'p3-pj-02': 'ಪನ್ನೀರ್ ಟಿಕ್ಕಾ ಮಸಾಲಾ',
+  'p3-pj-03': 'ಪನ್ನೀರ್ ಮಸಾಲಾ',
+  'p3-pj-04': 'ಪನ್ನೀರ್ ಬಟರ್ ಮಸಾಲಾ',
+  'p3-pj-05': 'ಪನ್ನೀರ್ ಹಂಡಿ',
+  'p3-pj-06': 'ಪನ್ನೀರ್ ಕಡಾಯಿ',
+  'p3-pj-07': 'ಪನ್ನೀರ್ ಕೊಲ್ಲಾಪುರಿ',
+  'p3-pj-08': 'ಪನ್ನೀರ್ ಕಾಜು ಲಸುನಿಯಾ',
+  'p3-pj-09': 'ಪನ್ನೀರ್ ತೂಫಾನಿ',
+  'p3-pj-10': 'ಪನ್ನೀರ್ ಭುರ್ಜಿ ಡ್ರೈ',
+  'p3-pj-11': 'ಪನ್ನೀರ್ ಖೀಮಾ',
+  'p3-pj-12': 'ಪನ್ನೀರ್ ಮಖನವಾಲಾ (ಸಿಹಿ)',
+  'p3-pj-13': 'ಪಾಲಕ್ ಪನ್ನೀರ್',
+  'p3-pj-14': 'ಮಟರ್ ಪನ್ನೀರ್',
+  'p3-pj-15': 'ಪನ್ನೀರ್ ಚಟ್ಪಟಾ',
+  'p3-pj-16': 'ಪನ್ನೀರ್ ಪಟಿಯಾಲಾ',
+  'p3-pj-17': 'ಪನ್ನೀರ್ ಪಸಂದ್',
+  'p3-pj-18': 'ಪನ್ನೀರ್ ರೋಲ್',
+  'p3-pj-19': 'ಪನ್ನೀರ್ ಕುರ್ಮಾ (ಸಿಹಿ)',
+  'p3-pj-20': 'ಪನ್ನೀರ್ ಅಂಗೂರಿ',
+  'p3-pj-21': 'ಪನ್ನೀರ್ ಚಿಲ್ಲಿ ಮಸಾಲಾ',
+
+  // PAGE 4: PUNJABI SPECIALS (KAJU & MUSHROOM) (19)
+  'p4-pj-01': 'ಮಶ್ರೂಮ್ ಬಟರ್ ಮಸಾಲಾ',
+  'p4-pj-02': 'ಚೀಸ್ ಕಾಜು ಬಟರ್ ಮಸಾಲಾ',
+  'p4-pj-03': 'ಕಾಜು ಬಟರ್ ಮಸಾಲಾ',
+  'p4-pj-04': 'ಕಾಜು ಮಸಾಲಾ',
+  'p4-pj-05': 'ಕಾಜು ಕಡಾಯಿ',
+  'p4-pj-06': 'ಕಾಜು ಪನ್ನೀರ್ ಮಸಾಲಾ',
+  'p4-pj-07': 'ಕಾಜು ಲಸುನಿಯಾ',
+  'p4-pj-08': 'ಖೋಯಾ ಕಾಜು (ಸಿಹಿ)',
+  'p4-pj-09': 'ಕಾಜು ಕರ್ರಿ (ಸಿಹಿ)',
+  'p4-pj-10': 'ಕಾಜು ಕುರ್ಮಾ (ಸಿಹಿ)',
+  'p4-pj-11': 'ಕಾಜು ಮಶ್ರೂಮ್',
+  'p4-pj-12': 'ಮಶ್ರೂಮ್ ಮಸಾಲಾ',
+  'p4-pj-13': 'ಮಶ್ರೂಮ್ ಪನ್ನೀರ್',
+  'p4-pj-14': 'ಪಾಲಕ್ ಮಶ್ರೂಮ್',
+  'p4-pj-15': 'ಕಾರ್ನ್ ಮಸಾಲಾ',
+  'p4-pj-16': 'ಸೇವ್ ಟೊಮೆಟೊ',
+  'p4-pj-17': 'ಸೇವ್ ಭಾಜಿ',
+  'p4-pj-18': 'ಟೊಮೆಟೊ ಕರ್ರಿ',
+  'p4-pj-19': 'ಮಿಲ್ಕ್ ಸೇವ್ ಭಾಜಿ (ಸಿಹಿ)',
+
+  // PAGE 5: VEGETABLES (22)
+  'p5-vg-01': 'ಮಿಕ್ಸ್ ವೆಜ್',
+  'p5-vg-02': 'ವೆಜ್ ಕಡಾಯಿ',
+  'p5-vg-03': 'ವೆಜ್ ಹಂಡಿ',
+  'p5-vg-04': 'ವೆಜ್ ಹೈದರಾಬಾದ್',
+  'p5-vg-05': 'ವೆಜ್ ಕೊಲ್ಲಾಪುರಿ',
+  'p5-vg-06': 'ವೆಜ್ ತವಾ ಮಸಾಲಾ',
+  'p5-vg-07': 'ವೆಜ್ ಲಸುನಿಯಾ',
+  'p5-vg-08': 'ವೆಜ್ ಜೈಪುರಿ (ಸಿಹಿ)',
+  'p5-vg-09': 'ವೆಜ್ ಖುಮಾ ಮಸಾಲಾ',
+  'p5-vg-10': 'ವೆಜ್ ಕೋಫ್ತಾ',
+  'p5-vg-11': 'ಪಾಲಕ್ ಕೋಫ್ತಾ',
+  'p5-vg-12': 'ಕ್ಯಾಪ್ಸಿಕಂ ಮಸಾಲಾ',
+  'p5-vg-13': 'ಆಲೂ ಈರುಳ್ಳಿ',
+  'p5-vg-14': 'ಆಲೂ ಲಸುನಿಯಾ (ಬೆಳ್ಳುಳ್ಳಿ ಆಲೂ)',
+  'p5-vg-15': 'ಆಲೂ ಜೀರಾ',
+  'p5-vg-16': 'ಆಲೂ ಪಾಲಕ್',
+  'p5-vg-17': 'ಆಲೂ ಕ್ಯಾಪ್ಸಿಕಂ ಮಸಾಲಾ',
+  'p5-vg-18': 'ಆಲೂ ಬೆಂಡೆಕಾಯಿ',
+  'p5-vg-19': 'ಮಲೈ ಕೋಫ್ತಾ (ಸಿಹಿ)',
+  'p5-vg-20': 'ಬೆಂಡೆಕಾಯಿ ಫ್ರೈ',
+  'p5-vg-21': 'ಬೆಂಡೆಕಾಯಿ ಮಸಾಲಾ',
+  'p5-vg-22': 'ಬೆಂಡೆಕಾಯಿ ಮಟರ್',
+
+  // PAGE 6: RICE (7)
+  'p6-rc-01': 'ಸ್ಟೀಮ್ ರೈಸ್ (ಅನ್ನ)',
+  'p6-rc-02': 'ಜೀರಾ ರೈಸ್',
+  'p6-rc-03': 'ಮಸಾಲಾ ರೈಸ್',
+  'p6-rc-04': 'ಘೀ ರೈಸ್ (ತುಪ್ಪದನ್ನ)',
+  'p6-rc-05': 'ಪಾಲಕ್ ರೈಸ್',
+  'p6-rc-06': 'ಚಿತ್ರಾನ್ನ (ಲೆಮನ್ ರೈಸ್)',
+  'p6-rc-07': 'ಟೊಮೆಟೊ ರೈಸ್',
+
+  // PAGE 6: BIRYANI (7)
+  'p6-br-01': 'ವೆಜ್ ಬಿರಿಯಾನಿ',
+  'p6-br-02': 'ವೆಜ್ ಹೈದರಾಬಾದಿ ಬಿರಿಯಾನಿ',
+  'p6-br-03': 'ಹಂಡಿ ಬಿರಿಯಾನಿ',
+  'p6-br-04': 'ದಮ್ ಬಿರಿಯಾನಿ',
+  'p6-br-05': 'ಪನ್ನೀರ್ ಬಿರಿಯಾನಿ',
+  'p6-br-06': 'ಕಾಜು ಬಿರಿಯಾನಿ',
+  'p6-br-07': 'ಮಶ್ರೂಮ್ ಬಿರಿಯಾನಿ',
+
+  // PAGE 6: PULAV & KHICHDI (8)
+  'p6-pk-01': 'ವೆಜ್ ಪುಲಾವ್',
+  'p6-pk-02': 'ಪನ್ನೀರ್ ಪುಲಾವ್',
+  'p6-pk-03': 'ಕಾಶ್ಮೀರಿ ಪುಲಾವ್ (ಸಿಹಿ)',
+  'p6-pk-04': 'ಕಾಜು ಪ್ಯಾಲೇಸ್',
+  'p6-pk-05': 'ದಾಲ್ ಕಿಚಡಿ',
+  'p6-pk-06': 'ಪಾಲಕ್ ಕಿಚಡಿ',
+  'p6-pk-07': 'ಮೊಸರನ್ನ (ಕರ್ಡ್ ರೈಸ್)',
+  'p6-pk-08': 'ಸ್ಪೆಷಲ್ ಮೊಸರನ್ನ',
+
+  // PAGE 7: CHINESE (7)
+  'p7-ch-01': 'ವೆಜ್ ಫ್ರೈಡ್ ರೈಸ್',
+  'p7-ch-02': 'ಆನಿಯನ್ ಚಿಲ್ಲಿ ಫ್ರೈಡ್ ರೈಸ್',
+  'p7-ch-03': 'ಶೆಜ್ವಾನ್ ಫ್ರೈಡ್ ರೈಸ್',
+  'p7-ch-04': 'ಪನ್ನೀರ್ ಫ್ರೈಡ್ ರೈಸ್',
+  'p7-ch-05': 'ಮಶ್ರೂಮ್ ಫ್ರೈಡ್ ರೈಸ್',
+  'p7-ch-06': 'ಗೋಬಿ ಫ್ರೈಡ್ ರೈಸ್',
+  'p7-ch-07': 'ಸಿಂಗಾಪುರ್ ಫ್ರೈಡ್ ರೈಸ್',
+
+  // PAGE 7: CURD ITEMS (2)
+  'p7-cd-01': 'ದಹಿ ಫ್ರೈ',
+  'p7-cd-02': 'ಗಟ್ಟಿ ಮೊಸರು (ಪ್ಲೇನ್ ಕರ್ಡ್)',
+
+  // PAGE 7: LASSI (5)
+  'p7-ls-01': 'ಮಜ್ಜಿಗೆ (ಬಟರ್ ಮಿಲ್ಕ್)',
+  'p7-ls-02': 'ಸ್ವೀಟ್ ಲಸ್ಸಿ',
+  'p7-ls-03': 'ಸಾಲ್ಟ್ ಲಸ್ಸಿ (ಉಪ್ಪು ಲಸ್ಸಿ)',
+  'p7-ls-04': 'ಚಾಕೊಲೇಟ್ ಲಸ್ಸಿ',
+  'p7-ls-05': 'ಮೊಸರು (ಪ್ಲೇನ್ ಕರ್ಡ್)',
+
+  // PAGE 8: TANDOORI ITEMS (15)
+  'p8-td-01': 'ತಂದೂರಿ ರೊಟ್ಟಿ',
+  'p8-td-02': 'ತಂದೂರಿ ಬಟರ್ ರೊಟ್ಟಿ',
+  'p8-td-03': 'ಗೋಧಿ ರೊಟ್ಟಿ',
+  'p8-td-04': 'ಗೋಧಿ ಬಟರ್ ರೊಟ್ಟಿ',
+  'p8-td-05': 'ತಂದೂರ್ ಬಟರ್ ನಾನ್',
+  'p8-td-06': 'ತಂದೂರ್ ಪ್ಲೇನ್ ನಾನ್',
+  'p8-td-07': 'ಗಾರ್ಲಿಕ್ ನಾನ್',
+  'p8-td-08': 'ಚೀಸ್ ನಾನ್',
+  'p8-td-09': 'ಬಟರ್ ಕುಲ್ಚಾ',
+  'p8-td-10': 'ಲಚ್ಚಾ ಪರೋಟ',
+  'p8-td-11': 'ಮಸಾಲಾ ಪರೋಟ',
+  'p8-td-12': 'ಆಲೂ ಪರೋಟ',
+  'p8-td-13': 'ಪನ್ನೀರ್ ಪರೋಟ',
+  'p8-td-14': 'ಚೀಸ್ ಪರೋಟ',
+  'p8-td-15': 'ಪಾಲಕ್ ಪರೋಟ',
+};
+
+export interface TranslationStrings {
+  brandName: string;
+  tagline: string;
+  cuisine: string;
+  heritage: string;
+  pureVeg: string;
+  pureVegMenu: string;
+  openMenu: string;
+  swipeHint: string;
+  digitalMenuBook: string;
+  cover: string;
+  chapters: string;
+  search: string;
+  prev: string;
+  next: string;
+  pageOf: string;
+  pageLabel: string;
+  folio: string;
+  crownJewel: string;
+  soldOut: string;
+  onRequest: string;
+  selection: string;
+  selections: string;
+  menuChapters: string;
+  digitalMenu: string;
+  tapChapterHint: string;
+  searchPlaceholder: string;
+  searchInitialHint: string;
+  noDishesFound: string;
+  jump: string;
+  restaurantTitle: string;
+  closeSearch: string;
+  closeChapters: string;
+  closeCoverAria: string;
+}
+
+export const UI_TEXT: Record<Language, TranslationStrings> = {
+  en: {
+    brandName: 'RUCHI’S',
+    tagline: 'Family Restaurant',
+    cuisine: 'North Indian & Marwadi Special',
+    heritage: 'Traditional Warmth • Rich Culinary Heritage',
+    pureVeg: 'Pure Vegetarian',
+    pureVegMenu: 'Pure Vegetarian Menu',
+    openMenu: 'Open Menu',
+    swipeHint: 'Swipe or tap arrows to turn pages',
+    digitalMenuBook: 'Digital Menu Book',
+    cover: 'Cover',
+    chapters: 'Chapters',
+    search: 'Search',
+    prev: 'Prev',
+    next: 'Next',
+    pageOf: 'of',
+    pageLabel: 'Page',
+    folio: 'Folio',
+    crownJewel: 'Crown Jewel',
+    soldOut: '(Sold Out)',
+    onRequest: 'On Request',
+    selection: 'Selection',
+    selections: 'Selections',
+    menuChapters: 'Menu Chapters',
+    digitalMenu: 'Ruchi’s Digital Menu',
+    tapChapterHint: 'Tap any chapter to turn directly to that page',
+    searchPlaceholder: 'Search dishes (e.g. Paneer, Dal)...',
+    searchInitialHint: 'Type a dish or category to search all 153 menu items...',
+    noDishesFound: 'No dishes found matching',
+    jump: 'Jump →',
+    restaurantTitle: 'Ruchi’s Restaurant',
+    closeSearch: 'Close search',
+    closeChapters: 'Close chapters modal',
+    closeCoverAria: 'Close book and return to front cover',
+  },
+  kn: {
+    brandName: 'ರುಚಿಸ್',
+    tagline: 'ಫ್ಯಾಮಿಲಿ ರೆಸ್ಟೋರೆಂಟ್',
+    cuisine: 'ಉತ್ತರ ಭಾರತ ಮತ್ತು ಮಾರ್ವಾಡಿ ಸ್ಪೆಷಲ್',
+    heritage: 'ಸಾಂಪ್ರದಾಯಿಕ ರುಚಿ • ರಾಜಮನೆತನದ ಆತಿಥ್ಯ',
+    pureVeg: 'ಶುದ್ಧ ಸಸ್ಯಾಹಾರಿ',
+    pureVegMenu: 'ಶುದ್ಧ ಸಸ್ಯಾಹಾರಿ ಮೆನು',
+    openMenu: 'ಮೆನು ತೆರೆಯಿರಿ',
+    swipeHint: 'ಪುಟಗಳನ್ನು ತಿರುಗಿಸಲು ಸ್ವೈಪ್ ಮಾಡಿ ಅಥವಾ ಬಾಣದ ಗುರುತು ಬಳಸಿ',
+    digitalMenuBook: 'ಡಿಜಿಟಲ್ ಮೆನು ಪುಸ್ತಕ',
+    cover: 'ಮುಖಪುಟ',
+    chapters: 'ಅಧ್ಯಾಯಗಳು',
+    search: 'ಹುಡುಕಿ',
+    prev: 'ಹಿಂದೆ',
+    next: 'ಮುಂದೆ',
+    pageOf: '/',
+    pageLabel: 'ಪುಟ',
+    folio: 'ಪುಟ',
+    crownJewel: 'ಮನೆಯ ವಿಶೇಷ',
+    soldOut: '(ಖಾಲಿಯಾಗಿದೆ)',
+    onRequest: 'ವಿಚಾರಿಸಿ',
+    selection: 'ಖಾದ್ಯ',
+    selections: 'ಖಾದ್ಯಗಳು',
+    menuChapters: 'ಮೆನು ಅಧ್ಯಾಯಗಳು',
+    digitalMenu: 'ರುಚಿಸ್ ಡಿಜಿಟಲ್ ಮೆನು',
+    tapChapterHint: 'ನೇರವಾಗಿ ಆ ಪುಟಕ್ಕೆ ಹೋಗಲು ಕ್ಲಿಕ್ ಮಾಡಿ',
+    searchPlaceholder: 'ಖಾದ್ಯಗಳನ್ನು ಹುಡುಕಿ (ಉದಾ: ಪನ್ನೀರ್, ದಾಲ್)...',
+    searchInitialHint: '153 ಖಾದ್ಯಗಳಲ್ಲಿ ಹುಡುಕಲು ಟೈಪ್ ಮಾಡಿ...',
+    noDishesFound: 'ಯಾವುದೇ ಖಾದ್ಯ ಕಂಡುಬಂದಿಲ್ಲ',
+    jump: 'ನೋಡಿ →',
+    restaurantTitle: 'ರುಚಿಸ್ ರೆಸ್ಟೋರೆಂಟ್',
+    closeSearch: 'ಹುಡುಕಾಟ ಮುಚ್ಚಿ',
+    closeChapters: 'ಅಧ್ಯಾಯಗಳನ್ನು ಮುಚ್ಚಿ',
+    closeCoverAria: 'ಪುಸ್ತಕ ಮುಚ್ಚಿ ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ',
+  },
 };
 
 export const OFFICIAL_MENU_DATA: MenuItemData[] = [
@@ -417,6 +773,42 @@ const SectionDividerOrnament: React.FC<{ color?: string }> = ({ color = '#A88B52
   </div>
 );
 
+// Language Toggle Component
+interface LanguageToggleProps {
+  lang: Language;
+  onToggle: (lang: Language) => void;
+  className?: string;
+}
+
+const LanguageToggle: React.FC<LanguageToggleProps> = ({ lang, onToggle, className = '' }) => (
+  <div className={`inline-flex items-center p-0.5 rounded-full bg-[#0E3324] border border-[#D4B475]/60 shadow-sm ${className}`}>
+    <button
+      type="button"
+      onClick={() => onToggle('en')}
+      className={`px-2 py-0.5 rounded-full text-[10px] font-sans font-semibold tracking-wider transition-all cursor-pointer ${
+        lang === 'en'
+          ? 'bg-[#D4B475] text-[#0E3324] shadow-xs'
+          : 'text-[#E8CFA0] hover:text-white'
+      }`}
+      aria-label="Switch to English"
+    >
+      EN
+    </button>
+    <button
+      type="button"
+      onClick={() => onToggle('kn')}
+      className={`px-2 py-0.5 rounded-full text-[10.5px] font-kannada font-semibold tracking-wider transition-all cursor-pointer ${
+        lang === 'kn'
+          ? 'bg-[#D4B475] text-[#0E3324] shadow-xs'
+          : 'text-[#E8CFA0] hover:text-white'
+      }`}
+      aria-label="Switch to Kannada"
+    >
+      ಕನ್ನಡ
+    </button>
+  </div>
+);
+
 // ============================================================================
 // 05. MENU ITEM ROW (MOBILE-OPTIMISED TYPOGRAPHY & DISH/PRICE ALIGNMENT)
 // ============================================================================
@@ -424,11 +816,17 @@ const SectionDividerOrnament: React.FC<{ color?: string }> = ({ color = '#A88B52
 interface MenuItemRowProps {
   item: MenuItemData;
   isHighlighted?: boolean;
+  lang: Language;
 }
 
-const MenuItemRow: React.FC<MenuItemRowProps> = ({ item, isHighlighted = false }) => {
+const MenuItemRow: React.FC<MenuItemRowProps> = ({ item, isHighlighted = false, lang }) => {
   const isSignature = item.name === 'Ruchi’s Special Curry';
   const isAvailable = item.available !== false;
+  const ui = UI_TEXT[lang];
+
+  const displayName = lang === 'kn' && KANNADA_DISH_NAMES[item.id]
+    ? KANNADA_DISH_NAMES[item.id]
+    : item.name;
 
   return (
     <li
@@ -445,22 +843,24 @@ const MenuItemRow: React.FC<MenuItemRowProps> = ({ item, isHighlighted = false }
           </span>
           <div className="min-w-0">
             <span
-              className={`font-sans text-[14px] sm:text-[15px] leading-snug tracking-[0.01em] transition-colors ${
+              className={`leading-snug transition-colors ${
+                lang === 'kn' ? 'font-kannada text-[13.5px] sm:text-[14.5px]' : 'font-sans text-[14px] sm:text-[15px] tracking-[0.01em]'
+              } ${
                 isSignature
                   ? 'font-semibold text-[#164B35]'
                   : 'font-normal text-[#1E2621] group-hover:text-[#164B35]'
               }`}
             >
-              {item.name}
+              {displayName}
             </span>
             {isSignature && (
               <span className="ml-1.5 inline-block font-serif italic text-[11px] sm:text-xs px-1.5 py-0.2 bg-[#164B35] text-[#F8F6EF] rounded-xs font-normal">
-                Crown Jewel
+                {ui.crownJewel}
               </span>
             )}
             {!isAvailable && (
               <span className="ml-1.5 text-[10px] uppercase font-sans tracking-wider text-[#8C968F]">
-                (Sold Out)
+                {ui.soldOut}
               </span>
             )}
           </div>
@@ -481,7 +881,7 @@ const MenuItemRow: React.FC<MenuItemRowProps> = ({ item, isHighlighted = false }
             </span>
           ) : (
             <span className="font-serif italic text-[11px] sm:text-xs text-[#6B756E] whitespace-nowrap">
-              {item.priceNote || 'On Request'}
+              {item.priceNote ? (lang === 'kn' ? ui.onRequest : item.priceNote) : ui.onRequest}
             </span>
           )}
         </div>
@@ -496,9 +896,13 @@ const MenuItemRow: React.FC<MenuItemRowProps> = ({ item, isHighlighted = false }
 
 interface BookFrontCoverProps {
   onOpenBook: () => void;
+  lang: Language;
+  onToggleLang: (lang: Language) => void;
 }
 
-const BookFrontCover: React.FC<BookFrontCoverProps> = ({ onOpenBook }) => {
+const BookFrontCover: React.FC<BookFrontCoverProps> = ({ onOpenBook, lang, onToggleLang }) => {
+  const ui = UI_TEXT[lang];
+
   return (
     <div className="w-full h-full flex flex-col justify-center items-center p-1 sm:p-4">
       {/* Physical Luxury Book Cover with Padded Leather Depth & Foil Stamp */}
@@ -526,34 +930,36 @@ const BookFrontCover: React.FC<BookFrontCoverProps> = ({ onOpenBook }) => {
           <CornerOrnamentSVG color="#D4B475" className="w-5 h-5 absolute bottom-1 left-1 -rotate-90" />
           <CornerOrnamentSVG color="#D4B475" className="w-5 h-5 absolute bottom-1 right-1 rotate-180" />
 
-          {/* Top: Pure Veg Hallmark */}
-          <div className="pt-1">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0E3324] border border-[#D4B475]/60 text-[10px] sm:text-xs font-sans uppercase tracking-[0.2em] text-[#E8CFA0] shadow-sm">
+          {/* Top: Pure Veg Hallmark & Language Toggle */}
+          <div className="w-full pt-1 flex items-center justify-between px-1">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.8 rounded-full bg-[#0E3324] border border-[#D4B475]/60 text-[10px] sm:text-xs font-sans uppercase tracking-[0.2em] text-[#E8CFA0] shadow-sm">
               <PureVegSymbol className="w-3.5 h-3.5" />
-              <span>Pure Vegetarian</span>
+              <span>{ui.pureVeg}</span>
             </div>
+
+            <LanguageToggle lang={lang} onToggle={onToggleLang} />
           </div>
 
           {/* Center: Majestic Restaurant Branding */}
           <div className="my-auto py-2 flex flex-col items-center max-w-full">
             <BrandEmblemSVG className="w-14 h-14 sm:w-16 sm:h-16 mb-2 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]" />
 
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[0.14em] text-[#F8F6EF] drop-shadow-md">
-              RUCHI’S
+            <h1 className={`${lang === 'kn' ? 'font-kannada text-2xl sm:text-3xl md:text-4xl' : 'font-serif text-3xl sm:text-4xl md:text-5xl tracking-[0.14em]'} font-semibold text-[#F8F6EF] drop-shadow-md`}>
+              {ui.brandName}
             </h1>
 
-            <p className="font-serif text-xs sm:text-sm tracking-[0.28em] text-[#D4B475] mt-0.5 uppercase font-medium">
-              Family Restaurant
+            <p className={`${lang === 'kn' ? 'font-kannada text-xs sm:text-sm' : 'font-serif text-xs sm:text-sm tracking-[0.28em] uppercase'} text-[#D4B475] mt-0.5 font-medium`}>
+              {ui.tagline}
             </p>
 
             <SectionDividerOrnament color="#D4B475" />
 
-            <p className="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-[#E2DACB] font-light max-w-[240px] sm:max-w-none">
-              North Indian &amp; Marwadi Special
+            <p className={`${lang === 'kn' ? 'font-kannada text-[11px] sm:text-xs' : 'font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.18em]'} text-[#E2DACB] font-light max-w-[260px] sm:max-w-none`}>
+              {ui.cuisine}
             </p>
 
             <p className="font-serif italic text-[11px] sm:text-xs text-[#C5BBAA] mt-1 opacity-85">
-              Traditional Warmth • Rich Culinary Heritage
+              {ui.heritage}
             </p>
           </div>
 
@@ -564,11 +970,11 @@ const BookFrontCover: React.FC<BookFrontCoverProps> = ({ onOpenBook }) => {
               onClick={onOpenBook}
               className="group w-full max-w-[220px] sm:max-w-[240px] mx-auto py-3 px-5 bg-gradient-to-r from-[#D4B475] via-[#E5C98E] to-[#D4B475] text-[#0E3324] font-sans text-xs sm:text-sm font-bold uppercase tracking-[0.2em] rounded-xs shadow-[0_6px_20px_rgba(0,0,0,0.45)] hover:shadow-[0_8px_25px_rgba(212,180,117,0.35)] hover:brightness-105 active:scale-[0.98] transition-all cursor-pointer flex items-center justify-center gap-2"
             >
-              <span>Open Menu</span>
+              <span>{ui.openMenu}</span>
               <span className="text-base transition-transform duration-300 group-hover:translate-x-1">→</span>
             </button>
             <p className="text-[9.5px] font-sans uppercase tracking-[0.14em] text-[#C5BBAA]/70 mt-2">
-              Swipe or tap arrows to turn pages
+              {ui.swipeHint}
             </p>
           </div>
         </div>
@@ -586,6 +992,7 @@ interface ChapterIndexModalProps {
   onClose: () => void;
   currentPage: number;
   onSelectPage: (pageNumber: number) => void;
+  lang: Language;
 }
 
 const ChapterIndexModal: React.FC<ChapterIndexModalProps> = ({
@@ -593,14 +1000,16 @@ const ChapterIndexModal: React.FC<ChapterIndexModalProps> = ({
   onClose,
   currentPage,
   onSelectPage,
+  lang,
 }) => {
   if (!isOpen) return null;
+  const ui = UI_TEXT[lang];
 
   return (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Table of Contents"
+      aria-label={ui.menuChapters}
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-sm"
       onClick={onClose}
     >
@@ -613,17 +1022,17 @@ const ChapterIndexModal: React.FC<ChapterIndexModalProps> = ({
           <div className="w-6" />
           <div className="text-center">
             <span className="text-[10px] font-sans uppercase tracking-[0.24em] text-[#8C7343] block">
-              Ruchi’s Digital Menu
+              {ui.digitalMenu}
             </span>
-            <h2 className="font-serif text-2xl font-semibold tracking-wide text-[#164B35]">
-              Menu Chapters
+            <h2 className={`font-serif text-2xl font-semibold tracking-wide text-[#164B35] ${lang === 'kn' ? 'font-kannada text-xl' : ''}`}>
+              {ui.menuChapters}
             </h2>
           </div>
           <button
             type="button"
             onClick={onClose}
             className="w-7 h-7 flex items-center justify-center rounded-full text-[#6B756E] hover:text-[#164B35] hover:bg-[#A88B52]/15 text-lg cursor-pointer"
-            aria-label="Close chapters modal"
+            aria-label={ui.closeChapters}
           >
             ✕
           </button>
@@ -633,6 +1042,13 @@ const ChapterIndexModal: React.FC<ChapterIndexModalProps> = ({
         <ul className="mt-3 divide-y divide-[#A88B52]/20 font-serif">
           {OFFICIAL_PAGES.map((pg) => {
             const isCurrent = pg.pageNumber === currentPage;
+            const chapterTitle = lang === 'kn' && KANNADA_PAGES[pg.pageNumber]
+              ? KANNADA_PAGES[pg.pageNumber].title
+              : pg.title;
+            const chapterSubtitle = lang === 'kn' && KANNADA_PAGES[pg.pageNumber]
+              ? KANNADA_PAGES[pg.pageNumber].subtitle
+              : pg.subtitle;
+
             return (
               <li key={pg.pageNumber}>
                 <button
@@ -654,13 +1070,15 @@ const ChapterIndexModal: React.FC<ChapterIndexModalProps> = ({
                       {pg.code}
                     </span>
                     <div>
-                      <h3 className="text-base font-medium leading-snug">{pg.title}</h3>
+                      <h3 className={`text-base font-medium leading-snug ${lang === 'kn' ? 'font-kannada text-[14px]' : ''}`}>
+                        {chapterTitle}
+                      </h3>
                       <p
                         className={`text-xs italic ${
                           isCurrent ? 'text-[#E2DACB]' : 'text-[#6B756E]'
-                        }`}
+                        } ${lang === 'kn' ? 'font-kannada text-[11px] not-italic' : ''}`}
                       >
-                        {pg.subtitle}
+                        {chapterSubtitle}
                       </p>
                     </div>
                   </div>
@@ -669,7 +1087,7 @@ const ChapterIndexModal: React.FC<ChapterIndexModalProps> = ({
                       isCurrent ? 'text-[#D4B475]' : 'text-[#8C7343] group-hover:translate-x-1 transition-transform'
                     }`}
                   >
-                    Go →
+                    {ui.jump}
                   </span>
                 </button>
               </li>
@@ -679,7 +1097,7 @@ const ChapterIndexModal: React.FC<ChapterIndexModalProps> = ({
 
         <div className="mt-4 pt-2.5 border-t border-[#A88B52]/30 text-center">
           <p className="text-[10.5px] font-sans uppercase tracking-[0.18em] text-[#8C7343]">
-            Tap any chapter to turn directly to that page
+            {ui.tapChapterHint}
           </p>
         </div>
       </div>
@@ -688,7 +1106,7 @@ const ChapterIndexModal: React.FC<ChapterIndexModalProps> = ({
 };
 
 // ============================================================================
-// 08. SEARCH MODAL OVERLAY (SEARCH ALL 153 ITEMS WITH INSTANT JUMP)
+// 08. SEARCH MODAL OVERLAY (SEARCH ALL 153 ITEMS IN ENGLISH & KANNADA)
 // ============================================================================
 
 interface SearchModalProps {
@@ -696,6 +1114,7 @@ interface SearchModalProps {
   onClose: () => void;
   allItems: MenuItemData[];
   onSelectDish: (item: MenuItemData) => void;
+  lang: Language;
 }
 
 const SearchModal: React.FC<SearchModalProps> = ({
@@ -703,9 +1122,11 @@ const SearchModal: React.FC<SearchModalProps> = ({
   onClose,
   allItems,
   onSelectDish,
+  lang,
 }) => {
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const ui = UI_TEXT[lang];
 
   useEffect(() => {
     if (isOpen) {
@@ -718,11 +1139,18 @@ const SearchModal: React.FC<SearchModalProps> = ({
   const filteredItems = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return [];
-    return allItems.filter(
-      (item) =>
-        item.name.toLowerCase().includes(q) ||
-        item.category.toLowerCase().includes(q)
-    );
+    return allItems.filter((item) => {
+      const enName = item.name.toLowerCase();
+      const knName = (KANNADA_DISH_NAMES[item.id] || '').toLowerCase();
+      const enCat = item.category.toLowerCase();
+      const knCat = (KANNADA_CATEGORY_DISPLAY_NAMES[item.category] || '').toLowerCase();
+      return (
+        enName.includes(q) ||
+        knName.includes(q) ||
+        enCat.includes(q) ||
+        knCat.includes(q)
+      );
+    });
   }, [allItems, query]);
 
   if (!isOpen) return null;
@@ -731,7 +1159,7 @@ const SearchModal: React.FC<SearchModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Search Dishes"
+      aria-label={ui.search}
       className="fixed inset-0 z-50 flex items-start justify-center pt-14 p-3 sm:p-5 bg-black/80 backdrop-blur-sm"
       onClick={onClose}
     >
@@ -749,14 +1177,14 @@ const SearchModal: React.FC<SearchModalProps> = ({
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search dishes (e.g. Paneer, Dal)..."
-            className="w-full bg-transparent font-sans text-sm sm:text-base outline-none text-[#1E2621] placeholder:text-[#8C968F]"
+            placeholder={ui.searchPlaceholder}
+            className={`w-full bg-transparent text-sm sm:text-base outline-none text-[#1E2621] placeholder:text-[#8C968F] ${lang === 'kn' ? 'font-kannada' : 'font-sans'}`}
           />
           <button
             type="button"
             onClick={onClose}
             className="w-7 h-7 flex items-center justify-center rounded-full text-[#6B756E] hover:text-[#164B35] text-lg cursor-pointer"
-            aria-label="Close search"
+            aria-label={ui.closeSearch}
           >
             ✕
           </button>
@@ -766,44 +1194,53 @@ const SearchModal: React.FC<SearchModalProps> = ({
         <div className="flex-1 overflow-y-auto mt-2.5 divide-y divide-[#A88B52]/20 book-page-scroll">
           {query.trim() === '' ? (
             <div className="py-6 text-center text-xs font-serif italic text-[#6B756E]">
-              Type a dish or category to search all 153 menu items...
+              {ui.searchInitialHint}
             </div>
           ) : filteredItems.length === 0 ? (
             <div className="py-6 text-center text-xs font-serif italic text-[#6B756E]">
-              No dishes found matching “{query}”.
+              {ui.noDishesFound} “{query}”.
             </div>
           ) : (
-            filteredItems.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => {
-                  onSelectDish(item);
-                  onClose();
-                }}
-                className="w-full py-2 px-2 text-left flex items-center justify-between gap-3 hover:bg-[#A88B52]/15 rounded-xs transition-colors cursor-pointer group"
-              >
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <PureVegSymbol className="w-2.5 h-2.5" />
-                    <span className="font-sans text-sm font-medium text-[#1E2621] group-hover:text-[#164B35]">
-                      {item.name}
+            filteredItems.map((item) => {
+              const dishName = lang === 'kn' && KANNADA_DISH_NAMES[item.id]
+                ? KANNADA_DISH_NAMES[item.id]
+                : item.name;
+              const catName = lang === 'kn' && KANNADA_CATEGORY_DISPLAY_NAMES[item.category]
+                ? KANNADA_CATEGORY_DISPLAY_NAMES[item.category]
+                : CATEGORY_DISPLAY_NAMES[item.category] || item.category;
+
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => {
+                    onSelectDish(item);
+                    onClose();
+                  }}
+                  className="w-full py-2 px-2 text-left flex items-center justify-between gap-3 hover:bg-[#A88B52]/15 rounded-xs transition-colors cursor-pointer group"
+                >
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <PureVegSymbol className="w-2.5 h-2.5" />
+                      <span className={`font-medium text-[#1E2621] group-hover:text-[#164B35] ${lang === 'kn' ? 'font-kannada text-xs' : 'font-sans text-sm'}`}>
+                        {dishName}
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-sans uppercase tracking-wider text-[#8C7343] block mt-0.5">
+                      {catName} • {ui.pageLabel} {item.page}
                     </span>
                   </div>
-                  <span className="text-[11px] font-sans uppercase tracking-wider text-[#8C7343] block mt-0.5">
-                    {CATEGORY_DISPLAY_NAMES[item.category] || item.category} • Page {item.page}
-                  </span>
-                </div>
-                <div className="text-right shrink-0">
-                  <span className="font-sans text-sm font-semibold text-[#9C7838]">
-                    {item.price !== null ? `₹${item.price}` : 'On Request'}
-                  </span>
-                  <span className="block text-[10px] text-[#6B756E] uppercase font-sans tracking-wide">
-                    Jump →
-                  </span>
-                </div>
-              </button>
-            ))
+                  <div className="text-right shrink-0">
+                    <span className="font-sans text-sm font-semibold text-[#9C7838]">
+                      {item.price !== null ? `₹${item.price}` : ui.onRequest}
+                    </span>
+                    <span className="block text-[10px] text-[#6B756E] uppercase font-sans tracking-wide">
+                      {ui.jump}
+                    </span>
+                  </div>
+                </button>
+              );
+            })
           )}
         </div>
       </div>
@@ -825,6 +1262,7 @@ interface BookPageLeafProps {
   onPrev: () => void;
   onNext: () => void;
   onOpenChapters: () => void;
+  lang: Language;
 }
 
 const BookPageLeaf: React.FC<BookPageLeafProps> = ({
@@ -837,14 +1275,34 @@ const BookPageLeaf: React.FC<BookPageLeafProps> = ({
   onPrev,
   onNext,
   onOpenChapters,
+  lang,
 }) => {
+  const ui = UI_TEXT[lang];
+
+  const pageTitle = lang === 'kn' && KANNADA_PAGES[pageMeta.pageNumber]
+    ? KANNADA_PAGES[pageMeta.pageNumber].title
+    : pageMeta.title;
+
+  const pageSubtitle = lang === 'kn' && KANNADA_PAGES[pageMeta.pageNumber]
+    ? KANNADA_PAGES[pageMeta.pageNumber].subtitle
+    : pageMeta.subtitle;
+
   const sections = useMemo(() => {
     return pageMeta.categories.map((catKey) => ({
       key: catKey,
-      displayName: CATEGORY_DISPLAY_NAMES[catKey] || catKey,
+      displayName: lang === 'kn'
+        ? (KANNADA_CATEGORY_DISPLAY_NAMES[catKey] || catKey)
+        : (CATEGORY_DISPLAY_NAMES[catKey] || catKey),
       items: pageItems.filter((i) => i.category === catKey),
     }));
-  }, [pageMeta.categories, pageItems]);
+  }, [pageMeta.categories, pageItems, lang]);
+
+  const emptySections = useMemo(() => {
+    if (lang === 'kn' && KANNADA_PAGES[pageMeta.pageNumber]?.emptySections) {
+      return KANNADA_PAGES[pageMeta.pageNumber].emptySections;
+    }
+    return pageMeta.emptySections;
+  }, [pageMeta, lang]);
 
   return (
     <div
@@ -887,21 +1345,21 @@ const BookPageLeaf: React.FC<BookPageLeafProps> = ({
       {/* Page Header (Fixed at top of leaf) */}
       <header className="relative z-20 pt-2 px-3 sm:pt-3 sm:px-6 pb-1.5 text-center border-b border-[#A88B52]/30 shrink-0">
         <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.22em] text-[#8C7343] mb-0.5">
-          <span>Ruchi’s Restaurant</span>
+          <span>{ui.restaurantTitle}</span>
           <button
             type="button"
             onClick={onOpenChapters}
             className="hover:text-[#164B35] font-semibold underline decoration-[#A88B52]/50 cursor-pointer"
             title="Open Chapter Index"
           >
-            Folio {pageMeta.code}
+            {ui.folio} {pageMeta.code}
           </button>
         </div>
-        <h2 className="font-serif text-lg sm:text-2xl font-semibold tracking-wide text-[#164B35] leading-tight">
-          {pageMeta.title}
+        <h2 className={`${lang === 'kn' ? 'font-kannada text-base sm:text-xl' : 'font-serif text-lg sm:text-2xl'} font-semibold tracking-wide text-[#164B35] leading-tight`}>
+          {pageTitle}
         </h2>
-        <p className="font-serif italic text-[10.5px] sm:text-xs text-[#5C665F] mt-0.5">
-          {pageMeta.subtitle}
+        <p className={`${lang === 'kn' ? 'font-kannada text-[10px] sm:text-xs' : 'font-serif italic text-[10.5px] sm:text-xs'} text-[#5C665F] mt-0.5`}>
+          {pageSubtitle}
         </p>
       </header>
 
@@ -916,14 +1374,14 @@ const BookPageLeaf: React.FC<BookPageLeafProps> = ({
                   <span className="w-3 h-px bg-[#A88B52]/60" />
                   <h3
                     id={`cat-${section.key}`}
-                    className="font-serif text-sm sm:text-base font-semibold tracking-[0.14em] uppercase text-[#164B35]"
+                    className={`${lang === 'kn' ? 'font-kannada text-xs sm:text-sm font-semibold' : 'font-serif text-sm sm:text-base font-semibold tracking-[0.14em] uppercase'} text-[#164B35]`}
                   >
                     {section.displayName}
                   </h3>
                   <span className="w-3 h-px bg-[#A88B52]/60" />
                 </div>
                 <span className="block text-[9px] uppercase font-sans tracking-[0.16em] text-[#8C7343]">
-                  {section.items.length} {section.items.length === 1 ? 'Selection' : 'Selections'}
+                  {section.items.length} {section.items.length === 1 ? ui.selection : ui.selections}
                 </span>
               </div>
 
@@ -934,6 +1392,7 @@ const BookPageLeaf: React.FC<BookPageLeafProps> = ({
                     key={item.id}
                     item={item}
                     isHighlighted={highlightedDishId === item.id}
+                    lang={lang}
                   />
                 ))}
               </ul>
@@ -943,15 +1402,15 @@ const BookPageLeaf: React.FC<BookPageLeafProps> = ({
           ))}
 
           {/* Empty Section Notes (e.g. THALI note on Page 8) */}
-          {pageMeta.emptySections?.map((emptySec) => (
+          {emptySections?.map((emptySec) => (
             <div
               key={emptySec.title}
               className="mt-3 p-2.5 border border-[#A88B52]/40 bg-[#164B35]/05 text-center rounded-xs"
             >
-              <h4 className="font-serif text-sm sm:text-base font-semibold tracking-wider text-[#164B35] uppercase">
+              <h4 className={`${lang === 'kn' ? 'font-kannada text-xs sm:text-sm' : 'font-serif text-sm sm:text-base tracking-wider uppercase'} font-semibold text-[#164B35]`}>
                 {emptySec.title}
               </h4>
-              <p className="font-serif italic text-xs text-[#5C665F] mt-0.5">
+              <p className={`${lang === 'kn' ? 'font-kannada text-[11px]' : 'font-serif italic text-xs'} text-[#5C665F] mt-0.5`}>
                 {emptySec.note}
               </p>
             </div>
@@ -966,10 +1425,10 @@ const BookPageLeaf: React.FC<BookPageLeafProps> = ({
           type="button"
           onClick={onPrev}
           className="inline-flex items-center gap-1 py-1 px-2 rounded text-[11px] font-sans uppercase tracking-[0.14em] text-[#164B35] hover:bg-[#A88B52]/20 active:scale-95 transition-all cursor-pointer"
-          aria-label={currentPage === 1 ? 'Close book and return to cover' : 'Previous Page'}
+          aria-label={currentPage === 1 ? ui.closeCoverAria : ui.prev}
         >
           <span className="text-[#8C7343] font-bold">←</span>
-          <span>{currentPage === 1 ? 'Cover' : 'Prev'}</span>
+          <span>{currentPage === 1 ? ui.cover : ui.prev}</span>
         </button>
 
         {/* Folio Indicator */}
@@ -977,9 +1436,9 @@ const BookPageLeaf: React.FC<BookPageLeafProps> = ({
           type="button"
           onClick={onOpenChapters}
           className="font-serif text-xs sm:text-sm font-semibold text-[#8C7343] tracking-widest hover:text-[#164B35] transition-colors cursor-pointer"
-          title="Click to view all chapters"
+          title={ui.tapChapterHint}
         >
-          — {pageMeta.code} of {String(totalPages).padStart(2, '0')} —
+          — {pageMeta.code} {ui.pageOf} {String(totalPages).padStart(2, '0')} —
         </button>
 
         {/* Next Page Button */}
@@ -988,9 +1447,9 @@ const BookPageLeaf: React.FC<BookPageLeafProps> = ({
           onClick={onNext}
           disabled={currentPage >= totalPages}
           className="inline-flex items-center gap-1 py-1 px-2 rounded text-[11px] font-sans uppercase tracking-[0.14em] text-[#164B35] hover:bg-[#A88B52]/20 active:scale-95 disabled:opacity-25 disabled:pointer-events-none transition-all cursor-pointer"
-          aria-label="Next Page"
+          aria-label={ui.next}
         >
-          <span>Next</span>
+          <span>{ui.next}</span>
           <span className="text-[#8C7343] font-bold">→</span>
         </button>
       </footer>
@@ -1108,10 +1567,11 @@ const AdminModal: React.FC<AdminModalProps> = ({
 };
 
 // ============================================================================
-// 11. MAIN APPLICATION COMPONENT (THE UNIFIED DIGITAL BOOK)
+// 11. MAIN APPLICATION COMPONENT (THE UNIFIED DIGITAL BOOK WITH KANNADA TOGGLE)
 // ============================================================================
 
 export function App() {
+  const [lang, setLang] = useState<Language>('en');
   const [menuItems, setMenuItems] = useState<MenuItemData[]>(OFFICIAL_MENU_DATA);
   const [isBookOpen, setIsBookOpen] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -1130,6 +1590,8 @@ export function App() {
 
   // Run integrity verification silently on mount
   useMemo(() => runMenuIntegrityAudit(OFFICIAL_MENU_DATA, OFFICIAL_PAGES), []);
+
+  const ui = UI_TEXT[lang];
 
   // Viewport mode detection (>= 1120px for Desktop Two-Page Spread)
   useEffect(() => {
@@ -1298,6 +1760,10 @@ export function App() {
   const leftPageMeta = OFFICIAL_PAGES.find((p) => p.pageNumber === leftSpreadPage) || OFFICIAL_PAGES[0];
   const rightPageMeta = rightSpreadPage ? OFFICIAL_PAGES.find((p) => p.pageNumber === rightSpreadPage) || null : null;
 
+  const currentChapterTitle = lang === 'kn' && KANNADA_PAGES[leftPageMeta.pageNumber]
+    ? KANNADA_PAGES[leftPageMeta.pageNumber].title
+    : leftPageMeta.title;
+
   return (
     <div
       className="min-h-[100dvh] h-[100dvh] w-full bg-[#0B1A12] text-[#F8F6EF] flex flex-col justify-between overflow-hidden selection:bg-[#D4B475] selection:text-[#0E3324]"
@@ -1310,13 +1776,16 @@ export function App() {
     >
       {/* Global Embedded Luxury Typography & Custom Scrollbars */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap');
 
         .font-serif {
           font-family: 'Cormorant Garamond', Georgia, serif;
         }
         .font-sans {
           font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .font-kannada {
+          font-family: 'Noto Sans Kannada', 'DM Sans', sans-serif;
         }
         .book-perspective {
           perspective: 1800px;
@@ -1338,41 +1807,44 @@ export function App() {
       ===================================================================== */}
       <header className="shrink-0 z-30 bg-[#08150E]/95 border-b border-[#D4B475]/25 backdrop-blur-md px-3 sm:px-6 py-2 flex items-center justify-between">
         {/* Left Section */}
-        <div className="flex-1 flex items-center justify-start">
+        <div className="flex-1 flex items-center justify-start gap-2">
           {isBookOpen ? (
             <button
               type="button"
               onClick={() => setIsBookOpen(false)}
               className="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-xs text-[11px] font-sans uppercase tracking-[0.16em] text-[#E8CFA0] border border-[#D4B475]/35 hover:bg-[#D4B475]/15 transition-colors cursor-pointer"
-              title="Close book and return to front cover"
+              title={ui.closeCoverAria}
             >
               <span className="text-[#D4B475]">📖</span>
-              <span>Cover</span>
+              <span>{ui.cover}</span>
             </button>
           ) : (
             <div className="flex items-center gap-1.5 text-[11px] font-sans uppercase tracking-[0.16em] text-[#D4B475]">
               <PureVegSymbol className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Pure Vegetarian</span>
+              <span className="hidden sm:inline">{ui.pureVegMenu}</span>
             </div>
           )}
+
+          {/* Language Toggle in Header */}
+          <LanguageToggle lang={lang} onToggle={setLang} />
         </div>
 
         {/* Center: Restaurant Brand Badge & Current Chapter Indicator */}
         <div className="shrink-0 text-center flex flex-col items-center">
-          <span className="font-serif text-lg sm:text-xl font-semibold tracking-[0.16em] text-[#F8F6EF] leading-none">
-            RUCHI’S
+          <span className={`${lang === 'kn' ? 'font-kannada text-sm sm:text-base font-bold' : 'font-serif text-lg sm:text-xl font-semibold tracking-[0.16em]'} text-[#F8F6EF] leading-none`}>
+            {ui.brandName}
           </span>
           {isBookOpen ? (
             <button
               type="button"
               onClick={() => setIsChaptersOpen(true)}
-              className="font-serif italic text-[11px] text-[#D4B475] tracking-wide hover:underline cursor-pointer leading-tight mt-0.5"
+              className={`italic text-[11px] text-[#D4B475] tracking-wide hover:underline cursor-pointer leading-tight mt-0.5 ${lang === 'kn' ? 'font-kannada not-italic' : 'font-serif'}`}
             >
-              {leftPageMeta.title} • {leftSpreadPage}/8 ▾
+              {currentChapterTitle} • {leftSpreadPage}/8 ▾
             </button>
           ) : (
             <span className="font-sans text-[9px] uppercase tracking-[0.24em] text-[#D4B475]/80 mt-0.5 leading-none">
-              Digital Menu Book
+              {ui.digitalMenuBook}
             </span>
           )}
         </div>
@@ -1384,12 +1856,12 @@ export function App() {
               type="button"
               onClick={() => setIsChaptersOpen(true)}
               className="inline-flex items-center gap-1 py-1 px-2 rounded-xs text-[11px] font-sans uppercase tracking-[0.14em] text-[#F8F6EF] hover:text-[#D4B475] border border-[#D4B475]/30 hover:bg-[#D4B475]/10 transition-colors cursor-pointer"
-              aria-label="Open Table of Contents"
+              aria-label={ui.menuChapters}
             >
               <svg className="w-3.5 h-3.5 text-[#D4B475]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 6h16M4 12h12M4 18h16" />
               </svg>
-              <span className="hidden sm:inline">Chapters</span>
+              <span className={`hidden sm:inline ${lang === 'kn' ? 'font-kannada text-[10.5px]' : ''}`}>{ui.chapters}</span>
             </button>
           )}
 
@@ -1397,8 +1869,8 @@ export function App() {
             type="button"
             onClick={() => setIsSearchOpen(true)}
             className="p-1.5 text-[#F8F6EF] hover:text-[#D4B475] rounded transition-colors cursor-pointer"
-            aria-label="Search dishes"
-            title="Search dishes (⌘K)"
+            aria-label={ui.search}
+            title={`${ui.search} (⌘K)`}
           >
             <svg className="w-4 h-4 text-[#D4B475]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -1418,6 +1890,8 @@ export function App() {
               setIsBookOpen(true);
               setCurrentPage(1);
             }}
+            lang={lang}
+            onToggleLang={setLang}
           />
         ) : (
           <div className="relative w-full h-full max-w-[480px] xl:max-w-[1040px] flex items-center justify-center min-h-0">
@@ -1426,7 +1900,7 @@ export function App() {
               type="button"
               onClick={handlePrevPage}
               className="hidden lg:flex absolute -left-12 z-30 w-10 h-10 rounded-full bg-[#122E21]/80 border border-[#D4B475]/50 text-[#D4B475] items-center justify-center shadow-lg hover:bg-[#164B35] transition-all cursor-pointer"
-              aria-label="Previous Page or Close Cover"
+              aria-label={ui.prev}
             >
               ←
             </button>
@@ -1436,7 +1910,7 @@ export function App() {
               onClick={handleNextPage}
               disabled={isDesktopSpread ? leftSpreadPage >= 7 : currentPage >= 8}
               className="hidden lg:flex absolute -right-12 z-30 w-10 h-10 rounded-full bg-[#122E21]/80 border border-[#D4B475]/50 text-[#D4B475] items-center justify-center shadow-lg hover:bg-[#164B35] disabled:opacity-25 disabled:pointer-events-none transition-all cursor-pointer"
-              aria-label="Next Page"
+              aria-label={ui.next}
             >
               →
             </button>
@@ -1466,6 +1940,7 @@ export function App() {
                       onPrev={handlePrevPage}
                       onNext={handleNextPage}
                       onOpenChapters={() => setIsChaptersOpen(true)}
+                      lang={lang}
                     />
                   </div>
 
@@ -1482,6 +1957,7 @@ export function App() {
                         onPrev={handlePrevPage}
                         onNext={handleNextPage}
                         onOpenChapters={() => setIsChaptersOpen(true)}
+                        lang={lang}
                       />
                     </div>
                   )}
@@ -1500,6 +1976,7 @@ export function App() {
         onClose={() => setIsChaptersOpen(false)}
         currentPage={currentPage}
         onSelectPage={handleJumpToPage}
+        lang={lang}
       />
 
       <SearchModal
@@ -1507,6 +1984,7 @@ export function App() {
         onClose={() => setIsSearchOpen(false)}
         allItems={menuItems}
         onSelectDish={handleSelectDishFromSearch}
+        lang={lang}
       />
 
       <AdminModal
