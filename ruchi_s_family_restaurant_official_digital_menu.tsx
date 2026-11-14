@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ruchiLogoImg from './src/assets/ruchi-logo.png';
 
 // ============================================================================
 // 01. TYPES & DATA SCHEMA (100% PRESERVED)
@@ -729,6 +730,26 @@ const PureVegSymbol: React.FC<{ className?: string }> = ({ className = 'w-3 h-3'
   </span>
 );
 
+export const RUCHI_CLOUDINARY_LOGO_URL =
+  'https://res.cloudinary.com/dfmhr0tu8/image/upload/v1794637156/904698878_29778956918378564_9057548902940532220_n-removebg-preview_fy7r2l.png';
+export const RUCHI_LOGO_URL = ruchiLogoImg || RUCHI_CLOUDINARY_LOGO_URL;
+
+export const RestaurantLogo: React.FC<{ className?: string; alt?: string }> = ({
+  className = 'w-16 h-auto',
+  alt = "Ruchi's Family Restaurant Logo",
+}) => (
+  <img
+    src={RUCHI_LOGO_URL}
+    onError={(e) => {
+      e.currentTarget.src = RUCHI_CLOUDINARY_LOGO_URL;
+    }}
+    alt={alt}
+    className={`object-contain select-none pointer-events-none ${className}`}
+    loading="eager"
+    decoding="async"
+  />
+);
+
 const BrandEmblemSVG: React.FC<{ className?: string }> = ({ className = 'w-10 h-10' }) => (
   <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="50" cy="50" r="46" stroke="#D4B475" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.6" />
@@ -942,15 +963,20 @@ const BookFrontCover: React.FC<BookFrontCoverProps> = ({ onOpenBook, lang, onTog
 
           {/* Center: Majestic Restaurant Branding */}
           <div className="my-auto py-2 flex flex-col items-center max-w-full">
-            <BrandEmblemSVG className="w-14 h-14 sm:w-16 sm:h-16 mb-2 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]" />
+            <div className="relative mb-2 flex items-center justify-center">
+              <div className="absolute w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[#FAF7F0]/12 blur-xl pointer-events-none" />
+              <RestaurantLogo className="relative w-36 h-auto sm:w-44 md:w-48 filter drop-shadow-[0_0_20px_rgba(212,180,117,0.45)] drop-shadow-[0_8px_20px_rgba(0,0,0,0.85)]" />
+            </div>
 
-            <h1 className={`${lang === 'kn' ? 'font-kannada text-2xl sm:text-3xl md:text-4xl' : 'font-serif text-3xl sm:text-4xl md:text-5xl tracking-[0.14em]'} font-semibold text-[#F8F6EF] drop-shadow-md`}>
-              {ui.brandName}
-            </h1>
+            <div className="text-center">
+              <h1 className={`${lang === 'kn' ? 'font-kannada text-2xl sm:text-3xl md:text-4xl' : 'font-serif text-2xl sm:text-3xl md:text-4xl tracking-[0.14em]'} font-semibold text-[#F8F6EF] drop-shadow-md`}>
+                {ui.brandName}
+              </h1>
 
-            <p className={`${lang === 'kn' ? 'font-kannada text-xs sm:text-sm' : 'font-serif text-xs sm:text-sm tracking-[0.28em] uppercase'} text-[#D4B475] mt-0.5 font-medium`}>
-              {ui.tagline}
-            </p>
+              <p className={`${lang === 'kn' ? 'font-kannada text-xs sm:text-sm' : 'font-serif text-xs sm:text-sm tracking-[0.26em] uppercase'} text-[#D4B475] mt-0.5 font-medium`}>
+                {ui.tagline}
+              </p>
+            </div>
 
             <SectionDividerOrnament color="#D4B475" />
 
@@ -1019,7 +1045,9 @@ const ChapterIndexModal: React.FC<ChapterIndexModalProps> = ({
       >
         {/* Header */}
         <div className="flex items-center justify-between pb-2.5 border-b border-[#A88B52]/40 text-center">
-          <div className="w-6" />
+          <div className="w-7 h-7 flex items-center justify-center shrink-0">
+            <RestaurantLogo className="w-6 h-6 object-contain" />
+          </div>
           <div className="text-center">
             <span className="text-[10px] font-sans uppercase tracking-[0.24em] text-[#8C7343] block">
               {ui.digitalMenu}
@@ -1193,8 +1221,9 @@ const SearchModal: React.FC<SearchModalProps> = ({
         {/* Results List */}
         <div className="flex-1 overflow-y-auto mt-2.5 divide-y divide-[#A88B52]/20 book-page-scroll">
           {query.trim() === '' ? (
-            <div className="py-6 text-center text-xs font-serif italic text-[#6B756E]">
-              {ui.searchInitialHint}
+            <div className="py-6 text-center text-xs font-serif italic text-[#6B756E] flex flex-col items-center gap-2">
+              <RestaurantLogo className="w-14 h-auto opacity-75 mb-0.5" />
+              <span>{ui.searchInitialHint}</span>
             </div>
           ) : filteredItems.length === 0 ? (
             <div className="py-6 text-center text-xs font-serif italic text-[#6B756E]">
@@ -1345,7 +1374,10 @@ const BookPageLeaf: React.FC<BookPageLeafProps> = ({
       {/* Page Header (Fixed at top of leaf) */}
       <header className="relative z-20 pt-2 px-3 sm:pt-3 sm:px-6 pb-1.5 text-center border-b border-[#A88B52]/30 shrink-0">
         <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.22em] text-[#8C7343] mb-0.5">
-          <span>{ui.restaurantTitle}</span>
+          <div className="flex items-center gap-1.5">
+            <RestaurantLogo className="w-3.5 h-3.5 object-contain" />
+            <span>{ui.restaurantTitle}</span>
+          </div>
           <button
             type="button"
             onClick={onOpenChapters}
@@ -1831,9 +1863,14 @@ export function App() {
 
         {/* Center: Restaurant Brand Badge & Current Chapter Indicator */}
         <div className="shrink-0 text-center flex flex-col items-center">
-          <span className={`${lang === 'kn' ? 'font-kannada text-sm sm:text-base font-bold' : 'font-serif text-lg sm:text-xl font-semibold tracking-[0.16em]'} text-[#F8F6EF] leading-none`}>
-            {ui.brandName}
-          </span>
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2">
+            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#FAF7F0] p-0.5 border border-[#D4B475]/80 flex items-center justify-center shadow-xs shrink-0">
+              <RestaurantLogo className="w-full h-full object-contain" />
+            </div>
+            <span className={`${lang === 'kn' ? 'font-kannada text-sm sm:text-base font-bold' : 'font-serif text-base sm:text-lg font-semibold tracking-[0.14em]'} text-[#F8F6EF] leading-none`}>
+              {ui.brandName}
+            </span>
+          </div>
           {isBookOpen ? (
             <button
               type="button"
