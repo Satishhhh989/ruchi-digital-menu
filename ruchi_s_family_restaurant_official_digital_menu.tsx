@@ -504,7 +504,7 @@ export const UI_TEXT: Record<Language, TranslationStrings> = {
 export const OFFICIAL_MENU_DATA: MenuItemData[] = [
   // PAGE 01: STARTERS (24 items)
   { id: 'p1-st-01', name: 'Roasted Papad', price: 30, category: 'STARTERS', page: 1 },
-  { id: 'p1-st-02', name: 'Masala Papad', price: 40, category: 'STARTERS', page: 1 },
+  { id: 'p1-st-02', name: 'Masala Papad', price: 50, category: 'STARTERS', page: 1 },
   { id: 'p1-st-03', name: 'Papad Suri', price: 130, category: 'STARTERS', page: 1 },
   { id: 'p1-st-04', name: 'Gobi Manchurian', price: 120, category: 'STARTERS', page: 1 },
   { id: 'p1-st-05', name: 'Veg Manchurian', price: 160, category: 'STARTERS', page: 1 },
