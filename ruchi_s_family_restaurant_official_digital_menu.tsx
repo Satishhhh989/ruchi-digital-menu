@@ -218,7 +218,7 @@ export const KANNADA_DISH_NAMES: Record<string, string> = {
   'p1-st-05': 'ವೆಜ್ ಮಂಚೂರಿಯನ್',
   'p1-st-06': 'ಪನ್ನೀರ್ ಚಿಲ್ಲಿ',
   'p1-st-07': 'ಪನ್ನೀರ್ ಮಂಚೂರಿಯನ್',
-  'p1-st-08': 'ಪನ್ನೀರ್ ಸೂಟೆ',
+  'p1-st-08': 'ಪನ್ನೀರ್ ಸಾಟೆ',
   'p1-st-09': 'ಪನ್ನೀರ್ ಪೆಪ್ಪರ್ ಡ್ರೈ',
   'p1-st-10': 'ಮಶ್ರೂಮ್ ಮಂಚೂರಿಯನ್',
   'p1-st-11': 'ಮಶ್ರೂಮ್ ಚಿಲ್ಲಿ',
@@ -279,7 +279,7 @@ export const KANNADA_DISH_NAMES: Record<string, string> = {
   'p3-pj-18': 'ಪನ್ನೀರ್ ರೋಲ್',
   'p3-pj-19': 'ಪನ್ನೀರ್ ಕುರ್ಮಾ (ಸಿಹಿ)',
   'p3-pj-20': 'ಪನ್ನೀರ್ ಅಂಗೂರಿ',
-  'p3-pj-21': 'ಪನ್ನೀರ್ ಚಿಲ್ಲಿ ಮಸಾಲಾ',
+  'p3-pj-21': 'ಪನ್ನೀರ್ ಚೀಸ್ ಮಸಾಲಾ',
 
   // PAGE 4: PUNJABI SPECIALS (KAJU & MUSHROOM) (19)
   'p4-pj-01': 'ಮಶ್ರೂಮ್ ಬಟರ್ ಮಸಾಲಾ',
@@ -510,7 +510,7 @@ export const OFFICIAL_MENU_DATA: MenuItemData[] = [
   { id: 'p1-st-05', name: 'Veg Manchurian', price: 160, category: 'STARTERS', page: 1 },
   { id: 'p1-st-06', name: 'Paneer Chilli', price: 170, category: 'STARTERS', page: 1 },
   { id: 'p1-st-07', name: 'Paneer Manchurian', price: 160, category: 'STARTERS', page: 1 },
-  { id: 'p1-st-08', name: 'Paneer Sute', price: 200, category: 'STARTERS', page: 1 },
+  { id: 'p1-st-08', name: 'Paneer Sate', price: 200, category: 'STARTERS', page: 1 },
   { id: 'p1-st-09', name: 'Paneer Pepper Dry', price: 145, category: 'STARTERS', page: 1 },
   { id: 'p1-st-10', name: 'Mushroom Manchurian', price: 135, category: 'STARTERS', page: 1 },
   { id: 'p1-st-11', name: 'Mushroom Chilli', price: 140, category: 'STARTERS', page: 1 },
@@ -571,10 +571,10 @@ export const OFFICIAL_MENU_DATA: MenuItemData[] = [
   { id: 'p3-pj-18', name: 'Paneer Roll', price: 230, category: 'PUNJABI SPECIALS (PANEER)', page: 3 },
   { id: 'p3-pj-19', name: 'Paneer Kurma Sweet', price: 220, category: 'PUNJABI SPECIALS (PANEER)', page: 3 },
   { id: 'p3-pj-20', name: 'Paneer Angoori', price: 210, category: 'PUNJABI SPECIALS (PANEER)', page: 3 },
-  { id: 'p3-pj-21', name: 'Paneer Chilli Masala', price: 220, category: 'PUNJABI SPECIALS (PANEER)', page: 3 },
+  { id: 'p3-pj-21', name: 'Paneer Cheese Masala', price: 220, category: 'PUNJABI SPECIALS (PANEER)', page: 3 },
 
   // PAGE 04: PUNJABI SPECIALS (KAJU & MUSHROOM) (19 items)
-  { id: 'p4-pj-01', name: 'Mushroom Butter Masala', price: 240, category: 'PUNJABI SPECIALS (KAJU & MUSHROOM)', page: 4 },
+  { id: 'p4-pj-01', name: 'Mushroom Butter Masala', price: 220, category: 'PUNJABI SPECIALS (KAJU & MUSHROOM)', page: 4 },
   { id: 'p4-pj-02', name: 'Cheese Kaju Butter Masala', price: 230, category: 'PUNJABI SPECIALS (KAJU & MUSHROOM)', page: 4 },
   { id: 'p4-pj-03', name: 'Kaju Butter Masala', price: 280, category: 'PUNJABI SPECIALS (KAJU & MUSHROOM)', page: 4 },
   { id: 'p4-pj-04', name: 'Kaju Masala', price: 230, category: 'PUNJABI SPECIALS (KAJU & MUSHROOM)', page: 4 },
